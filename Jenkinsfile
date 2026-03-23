@@ -10,7 +10,7 @@ pipeline {
 
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/Shiva6025/myportfolio.git'
+                 git branch: 'main', git 'https://github.com/Shiva6025/myportfolio.git'
             }
         }
 
