@@ -86,7 +86,7 @@ const projects = [
         tags: ["React", "Node.js", "PostgreSQL", "Prisma", "Tailwind"],
         link: "https://sayabacus.com/",
         github: null,
-        status: "testing",
+        status: "live",
         image: null
     },
     {
