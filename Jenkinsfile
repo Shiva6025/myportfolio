@@ -2,17 +2,11 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = "shivakrishnaanamala/my-first-image"
+        DOCKER_IMAGE = "instantprachi/myapp"
         DOCKER_TAG = "latest"
     }
 
     stages {
-
-        stage('Clone Repository') {
-            steps {
-                 git branch: 'main', git 'https://github.com/Shiva6025/myportfolio.git'
-            }
-        }
 
         stage('Build Docker Image') {
             steps {
@@ -24,8 +18,8 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(
                     credentialsId: 'dockerhub-creds',
-                    usernameVariable: 'shivakrishnaanamala',
-                    passwordVariable: 'Krishna@143'
+                    usernameVariable: 'DOCKER_USER',
+                    passwordVariable: 'DOCKER_PASS'
                 )]) {
                     sh 'echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin'
                 }
