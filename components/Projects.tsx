@@ -1,5 +1,5 @@
 'use client';
-
+import React from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, Github, Sparkles, Rocket, Zap, Star } from 'lucide-react';
 import Image from 'next/image';
@@ -84,7 +84,7 @@ const projects = [
         title: "Mental Maths",
         description: "Interactive educational app for improving mental arithmetic skills and speed.",
         tags: ["React", "Node.js", "PostgreSQL", "Prisma", "Tailwind"],
-        link: null,
+        link: "https://sayabacus.com/",
         github: null,
         status: "testing",
         image: null
@@ -318,7 +318,7 @@ export default function Projects() {
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2, type: "spring" }}
-                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-primary/20 to-accent/20 border border-primary/30 text-sm font-semibold mb-8 float"
+                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-linear-to-r from-primary/20 to-accent/20 border border-primary/30 text-sm font-semibold mb-8 float"
                     >
                         <Rocket className="w-4 h-4 text-primary" />
                         <span className="gradient-text">Portfolio Showcase</span>
@@ -394,7 +394,7 @@ export default function Projects() {
                             {/* Featured Badge */}
                             {project.featured && (
                                 <div className="absolute top-5 left-5 z-20">
-                                    <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-gradient-to-r from-primary to-accent text-white text-xs font-bold shadow-lg shadow-primary/30">
+                                    <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-linear-to-r from-primary to-accent text-white text-xs font-bold shadow-lg shadow-primary/30">
                                         <Star size={12} fill="currentColor" />
                                         FEATURED
                                     </span>
@@ -404,7 +404,7 @@ export default function Projects() {
                             {/* Image Container */}
                             <div className="relative h-56 overflow-hidden">
                                 {/* Gradient background */}
-                                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10" />
+                                <div className="absolute inset-0 bg-linear-to-br from-primary/10 via-transparent to-accent/10" />
 
                                 {project.image ? (
                                     <Image
@@ -416,7 +416,7 @@ export default function Projects() {
                                 ) : (
                                     <div className="absolute inset-0 flex items-center justify-center">
                                         <div className="text-center p-6">
-                                            <div className="w-20 h-20 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 shadow-2xl shadow-primary/20">
+                                            <div className="w-20 h-20 mx-auto mb-4 rounded-2xl bg-linear-to-br from-primary/20 to-accent/20 flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 shadow-2xl shadow-primary/20">
                                                 <ExternalLink className="w-9 h-9 text-primary" />
                                             </div>
                                             <p className="text-base font-semibold text-foreground/70 max-w-[180px] mx-auto line-clamp-2">
@@ -438,15 +438,15 @@ export default function Projects() {
                                 </div>
 
                                 {/* Gradient overlay */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
+                                <div className="absolute inset-0 bg-linear-to-t from-card via-card/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
                             </div>
 
                             {/* Content */}
-                            <div className="p-7 flex flex-col flex-grow relative z-10">
+                            <div className="p-7 flex flex-col grow relative z-10">
                                 <h3 className="text-xl font-bold mb-3 text-foreground group-hover:gradient-text transition-all duration-300 line-clamp-1">
                                     {project.title}
                                 </h3>
-                                <p className="text-muted-foreground mb-5 text-sm leading-relaxed flex-grow line-clamp-2">
+                                <p className="text-muted-foreground mb-5 text-sm leading-relaxed grow line-clamp-2">
                                     {project.description}
                                 </p>
 
@@ -474,7 +474,7 @@ export default function Projects() {
                                             href={project.link}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-gradient-to-r from-primary to-primary/80 text-white text-sm font-bold transition-all neon-button"
+                                            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-linear-to-r from-primary to-primary/80 text-white text-sm font-bold transition-all neon-button"
                                         >
                                             <ExternalLink size={14} />
                                             <span>View Live</span>
@@ -510,8 +510,8 @@ export default function Projects() {
                     transition={{ delay: 0.3 }}
                     className="mt-24 relative"
                 >
-                    <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 rounded-[40px] blur-3xl" />
-                    <div className="relative p-10 md:p-16 rounded-[40px] bg-gradient-to-br from-card/95 to-card/80 backdrop-blur-xl border border-primary/20 overflow-hidden glass-card">
+                    <div className="absolute inset-0 bg-linear-to-r from-primary/20 via-accent/20 to-primary/20 rounded-[40px] blur-3xl" />
+                    <div className="relative p-10 md:p-16 rounded-[40px] bg-linear-to-br from-card/95 to-card/80 backdrop-blur-xl border border-primary/20 overflow-hidden glass-card">
                         {/* Decorative elements */}
                         <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[80px]" />
                         <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent/10 rounded-full blur-[80px]" />
@@ -522,7 +522,7 @@ export default function Projects() {
                                 whileInView={{ scale: 1 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: 0.4, type: "spring" }}
-                                className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-primary/20 to-accent/20 border border-primary/30 text-sm font-bold mb-6"
+                                className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-linear-to-r from-primary/20 to-accent/20 border border-primary/30 text-sm font-bold mb-6"
                             >
                                 <Sparkles className="w-4 h-4 text-primary" />
                                 <span className="gradient-text">Let's Build Something Amazing</span>
@@ -539,7 +539,7 @@ export default function Projects() {
                             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                                 <a
                                     href="#contact"
-                                    className="inline-flex items-center gap-3 px-10 py-4 rounded-2xl bg-gradient-to-r from-primary to-accent text-white font-bold text-lg transition-all neon-button group"
+                                    className="inline-flex items-center gap-3 px-10 py-4 rounded-2xl bg-linear-to-r from-primary to-accent text-white font-bold text-lg transition-all neon-button group"
                                 >
                                     <span>Hire Me Now</span>
                                     <Rocket className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
