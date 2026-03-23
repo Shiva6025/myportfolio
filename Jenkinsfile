@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = "instantprachi/myapp"
+        DOCKER_IMAGE = "shivakrishnaanamala/my-first-image"
         DOCKER_TAG = "latest"
     }
 
@@ -18,8 +18,8 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(
                     credentialsId: 'dockerhub-creds',
-                    usernameVariable: 'DOCKER_USER',
-                    passwordVariable: 'DOCKER_PASS'
+                    usernameVariable: 'shivakrishnaanamala',
+                    passwordVariable: 'Krishna@143'
                 )]) {
                     sh 'echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin'
                 }
