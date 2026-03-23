@@ -94,7 +94,7 @@ const projects = [
         title: "Book My Theatre",
         description: "Theatre booking platform with seat selection and payment integration.",
         tags: ["React", "Node.js", "PostgreSQL", "Prisma", "Tailwind"],
-        link: null,
+        link: "https://uat.bookmytheatre.com/",
         github: null,
         status: "development",
         image: null
