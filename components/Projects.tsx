@@ -149,6 +149,16 @@ const projects = [
         status: "development",
         image: null
     },
+    {
+        id: 15,
+        title: "Achwale",
+        description: "Influencer application - ecosystem connects brands, creators, and partners to create real impact through authentic, scalable influencer collaborations",
+        tags: ["React", "Node.js", "PostgreSQL", "Prisma", "Tailwind"],
+        link: "https://achwale.com/",
+        github: null,
+        status: "development",
+        image: null
+    },
 
     // WordPress Projects
     {
