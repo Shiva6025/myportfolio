@@ -2,52 +2,29 @@
 
 import { Moon, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 
 export default function ThemeToggle() {
-    const { theme, setTheme } = useTheme();
-    const [mounted, setMounted] = useState(false);
-
-    useEffect(() => {
-        setMounted(true);
-    }, []);
-
-    if (!mounted) {
-        return <div className="w-10 h-10" />;
-    }
+    const { resolvedTheme, setTheme } = useTheme();
+    const isDark = resolvedTheme === 'dark';
 
     return (
-        <motion.button
-            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-            className="p-2.5 bg-secondary hover:bg-secondary/80 rounded-xl transition-colors"
+        <button
+            type="button"
+            onClick={() => setTheme(isDark ? 'light' : 'dark')}
+            className="relative grid h-10 w-10 place-items-center rounded-xl bg-secondary text-secondary-foreground transition-colors hover:bg-secondary/80"
             aria-label="Toggle theme"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            suppressHydrationWarning
         >
-            <AnimatePresence mode="wait" initial={false}>
-                {theme === 'dark' ? (
-                    <motion.div
-                        key="sun"
-                        initial={{ rotate: -90, opacity: 0 }}
-                        animate={{ rotate: 0, opacity: 1 }}
-                        exit={{ rotate: 90, opacity: 0 }}
-                        transition={{ duration: 0.15 }}
-                    >
-                        <Sun className="h-5 w-5 text-amber-400" />
-                    </motion.div>
-                ) : (
-                    <motion.div
-                        key="moon"
-                        initial={{ rotate: 90, opacity: 0 }}
-                        animate={{ rotate: 0, opacity: 1 }}
-                        exit={{ rotate: -90, opacity: 0 }}
-                        transition={{ duration: 0.15 }}
-                    >
-                        <Moon className="h-5 w-5 text-primary" />
-                    </motion.div>
-                )}
-            </AnimatePresence>
-        </motion.button>
+            <Sun
+                className={`absolute h-5 w-5 text-amber-400 transition-[opacity,transform] duration-150 ${isDark ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 -rotate-45 scale-75'
+                    }`}
+                aria-hidden="true"
+            />
+            <Moon
+                className={`absolute h-5 w-5 text-primary transition-[opacity,transform] duration-150 ${isDark ? 'opacity-0 rotate-45 scale-75' : 'opacity-100 rotate-0 scale-100'
+                    }`}
+                aria-hidden="true"
+            />
+        </button>
     );
 }

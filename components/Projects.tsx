@@ -1,21 +1,24 @@
 'use client';
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, Github, Sparkles, Rocket, Zap, Star } from 'lucide-react';
 import Image from 'next/image';
+
+type ProjectCategory = 'all' | 'fullstack' | 'wordpress';
 
 const projects = [
     // Full-Stack Applications
     
     {
-        id: 15,
+        id: 0,
         title: "Achwale",
         description: "Influencer application - ecosystem connects brands, creators, and partners to create real impact through authentic, scalable influencer collaborations",
         tags: ["React", "Node.js", "PostgreSQL", "Prisma", "Tailwind"],
         link: "https://achwale.com/",
         github: null,
-        status: "Live",
-        image: null
+        status: "live",
+        image: null,
+        featured: true
     },
     {
         id: 1,
@@ -304,7 +307,25 @@ const projects = [
     }
 ];
 
+const projectTabs: { label: string; value: ProjectCategory }[] = [
+    { label: 'All', value: 'all' },
+    { label: 'Fullstack', value: 'fullstack' },
+    { label: 'WordPress', value: 'wordpress' },
+];
+
+const getProjectCategory = (tags: string[]): Exclude<ProjectCategory, 'all'> => (
+    tags.some((tag) => tag.toLowerCase() === 'wordpress') ? 'wordpress' : 'fullstack'
+);
+
 export default function Projects() {
+    const [activeTab, setActiveTab] = useState<ProjectCategory>('all');
+
+    const filteredProjects = useMemo(() => {
+        if (activeTab === 'all') return projects;
+
+        return projects.filter((project) => getProjectCategory(project.tags) === activeTab);
+    }, [activeTab]);
+
     return (
         <section id="projects" className="py-28 px-6 md:px-8 relative overflow-hidden">
             {/* Animated background orbs */}
@@ -389,13 +410,48 @@ export default function Projects() {
                 </motion.div>
 
                 {/* Divider */}
-                <div className="section-divider mb-16" />
+                <div className="section-divider mb-10" />
+
+                {/* Project Tabs */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="mb-12 flex justify-center"
+                >
+                    <div className="flex w-full max-w-xl flex-col gap-2 rounded-2xl border border-border/60 bg-card/80 p-2 backdrop-blur-sm sm:flex-row">
+                        {projectTabs.map((tab) => {
+                            const isActive = activeTab === tab.value;
+                            const count = tab.value === 'all'
+                                ? projects.length
+                                : projects.filter((project) => getProjectCategory(project.tags) === tab.value).length;
+
+                            return (
+                                <button
+                                    key={tab.value}
+                                    type="button"
+                                    onClick={() => setActiveTab(tab.value)}
+                                    className={`min-h-11 flex-1 rounded-xl px-4 py-2.5 text-sm font-bold transition-all ${isActive
+                                        ? 'bg-linear-to-r from-primary to-accent text-white shadow-lg shadow-primary/20'
+                                        : 'text-muted-foreground hover:bg-secondary hover:text-foreground'
+                                        }`}
+                                    aria-pressed={isActive}
+                                >
+                                    <span>{tab.label}</span>
+                                    <span className={`ml-2 text-xs ${isActive ? 'text-white/80' : 'text-muted-foreground'}`}>
+                                        {count}
+                                    </span>
+                                </button>
+                            );
+                        })}
+                    </div>
+                </motion.div>
 
                 {/* Projects Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                    {projects.map((project, index) => (
+                    {filteredProjects.map((project, index) => (
                         <motion.div
-                            key={project.id}
+                            key={`${project.id}-${project.title}`}
                             initial={{ opacity: 0, y: 50 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}

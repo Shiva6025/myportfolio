@@ -152,7 +152,7 @@
   }
 
   html {
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
   }
 
   /* ======== LIGHT MODE BACKGROUND ======== */
@@ -217,24 +217,31 @@
   /* ======== CUSTOM CURSOR ======== */
   #cursor {
     position: fixed;
+    top: 0;
+    left: 0;
     width: 24px;
     height: 24px;
     border: 2px solid;
     border-radius: 50%;
     pointer-events: none;
     z-index: 9999;
-    transition: transform 0.15s ease, width 0.2s, height 0.2s;
+    transform: translate3d(-999px, -999px, 0);
+    transition: border-color 0.15s ease;
+    will-change: transform;
     mix-blend-mode: difference;
   }
 
   #cursor-dot {
     position: fixed;
+    top: 0;
+    left: 0;
     width: 8px;
     height: 8px;
     border-radius: 50%;
     pointer-events: none;
     z-index: 10000;
-    transition: transform 0.1s ease;
+    transform: translate3d(-999px, -999px, 0);
+    will-change: transform;
   }
 
   body:not(.dark) #cursor {
@@ -251,6 +258,17 @@
 
   .dark #cursor-dot {
     background: linear-gradient(135deg, #3b82f6, #34d399);
+  }
+
+  @media (hover: none), (pointer: coarse) {
+    body {
+      cursor: auto;
+    }
+
+    #cursor,
+    #cursor-dot {
+      display: none;
+    }
   }
 }
 
