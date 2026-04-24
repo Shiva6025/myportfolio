@@ -6,12 +6,23 @@ import Image from 'next/image';
 
 const projects = [
     // Full-Stack Applications
+    
+    {
+        id: 15,
+        title: "Achwale",
+        description: "Influencer application - ecosystem connects brands, creators, and partners to create real impact through authentic, scalable influencer collaborations",
+        tags: ["React", "Node.js", "PostgreSQL", "Prisma", "Tailwind"],
+        link: "https://achwale.com/",
+        github: null,
+        status: "Live",
+        image: null
+    },
     {
         id: 1,
         title: "Task Management System",
         description: "SaaS application for team collaboration and project management with real-time updates.",
         tags: ["React", "Node.js", "PostgreSQL", "Prisma", "Tailwind"],
-        link: "https://tmstribha.techdino.in/",
+        link: "https://tmsapp.quadrantitservices.com/",
         github: null,
         status: "live",
         image: null,
@@ -19,16 +30,6 @@ const projects = [
     },
     {
         id: 2,
-        title: "Rudra Home Tuitions",
-        description: "Educational platform connecting students with qualified tutors for personalized learning.",
-        tags: ["React", "Node.js", "PostgreSQL", "Prisma", "Tailwind"],
-        link: "https://rudrahometuitions.com/",
-        github: null,
-        status: "live",
-        image: null
-    },
-    {
-        id: 3,
         title: "Diary Souls",
         description: "Digital journaling and personal diary application with privacy-focused features.",
         tags: ["React", "Node.js", "PostgreSQL", "Prisma", "Tailwind"],
@@ -38,7 +39,7 @@ const projects = [
         image: null
     },
     {
-        id: 4,
+        id: 3,
         title: "Quadrant Exams",
         description: "Online examination and assessment platform with automated grading system.",
         tags: ["React", "Node.js", "PostgreSQL", "Prisma", "Tailwind"],
@@ -49,7 +50,7 @@ const projects = [
         featured: true
     },
     {
-        id: 5,
+        id: 4,
         title: "VMS - Visitor Management",
         description: "Comprehensive visitor management system for corporate and institutional use.",
         tags: ["React.js", "Frontend"],
@@ -59,7 +60,7 @@ const projects = [
         image: null
     },
     {
-        id: 6,
+        id: 5,
         title: "Meetowner",
         description: "Mobile application connecting property seekers directly with owners.",
         tags: ["React Native", "Mobile App"],
@@ -70,7 +71,7 @@ const projects = [
         featured: true
     },
     {
-        id: 7,
+        id: 6,
         title: "Linkin Science",
         description: "Bioscience platform with enhanced frontend and error fixes for better user experience.",
         tags: ["HTML", "Frontend"],
@@ -80,7 +81,7 @@ const projects = [
         image: null
     },
     {
-        id: 8,
+        id: 7,
         title: "Mental Maths",
         description: "Interactive educational app for improving mental arithmetic skills and speed.",
         tags: ["React", "Node.js", "PostgreSQL", "Prisma", "Tailwind"],
@@ -90,7 +91,7 @@ const projects = [
         image: null
     },
     {
-        id: 9,
+        id: 8,
         title: "Book My Theatre",
         description: "Theatre booking platform with seat selection and payment integration.",
         tags: ["React", "Node.js", "PostgreSQL", "Prisma", "Tailwind"],
@@ -100,9 +101,19 @@ const projects = [
         image: null
     },
     {
-        id: 10,
+        id: 9,
         title: "Limousin Ride",
         description: "Premium ride-hailing service platform with advanced booking features.",
+        tags: ["React", "Node.js", "PostgreSQL", "Prisma", "Tailwind"],
+        link: null,
+        github: null,
+        status: "development",
+        image: null
+    },
+    {
+        id: 10,
+        title: "Rudra Home Tuitions",
+        description: "Educational platform connecting students with qualified tutors for personalized learning.",
         tags: ["React", "Node.js", "PostgreSQL", "Prisma", "Tailwind"],
         link: null,
         github: null,
@@ -145,16 +156,6 @@ const projects = [
         description: "Property CRM desktop application built with Electron framework for real estate management.",
         tags: ["Electron", "Desktop App", "CRM"],
         link: null,
-        github: null,
-        status: "development",
-        image: null
-    },
-    {
-        id: 15,
-        title: "Achwale",
-        description: "Influencer application - ecosystem connects brands, creators, and partners to create real impact through authentic, scalable influencer collaborations",
-        tags: ["React", "Node.js", "PostgreSQL", "Prisma", "Tailwind"],
-        link: "https://achwale.com/",
         github: null,
         status: "development",
         image: null
